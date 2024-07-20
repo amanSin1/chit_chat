@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "635529589851",
+    "project_id": "hellowchat-c266f",
+    "storage_bucket": "hellowchat-c266f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635529589851:android:48f4b67e18bde20d297b7e",
+        "android_client_info": {
+          "package_name": "com.example.demu_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfQ-aL-6owVnOVE3_-675lUPPyfdCfaVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
