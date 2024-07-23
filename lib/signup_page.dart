@@ -14,6 +14,8 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController username = TextEditingController();
+
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> signup() async {
@@ -26,6 +28,7 @@ class _SignupPageState extends State<SignupPage> {
       await _firestore.collection("Users").doc(userCredential.user!.uid).set({
         'uid': userCredential.user!.uid,
         'email': email.text,
+        'username': username.text, // Add this line
       });
 
       Get.offAll(const Wrapper());
@@ -61,30 +64,88 @@ class _SignupPageState extends State<SignupPage> {
       appBar: AppBar(
         title: const Text("Sign Up"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: email,
-              decoration: const InputDecoration(
-                hintText: "Enter email",
+      body: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: email,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Enter your Email",
+                  hintStyle: TextStyle(color: Colors.white),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.white), // Rounded corners
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when enabled
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when focused
+                  ),
+                ),
               ),
-            ),
-            TextField(
-              controller: password,
-              decoration: const InputDecoration(
-                hintText: "Enter password",
+              SizedBox(height: 10),
+              TextField(
+                controller: password,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Enter new Password",
+                  hintStyle: TextStyle(color: Colors.white),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.white), // Rounded corners
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when enabled
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when focused
+                  ),
+                ),
               ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: signup,
-                child: const Text("Sign up"),
+              SizedBox(height: 10),
+              TextField(
+                controller: username,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Enter Username",
+                  hintStyle: TextStyle(color: Colors.white),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.white), // Rounded corners
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when enabled
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(19.0),
+                    borderSide: BorderSide(color: Colors.teal), // Border color when focused
+                  ),
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 10),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: signup,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green
+                  ),
+                  child: const Text("Sign up", style: TextStyle(color: Colors.black)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

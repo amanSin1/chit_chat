@@ -53,24 +53,31 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: Text("S P I L L  T H E   T E A", style: TextStyle(fontStyle: FontStyle.italic),),
         centerTitle: true,
-        backgroundColor: Colors.teal, // Change the background color
+        backgroundColor: Colors.grey, // Change the background color
       ),
       body: Container(
         padding: EdgeInsets.all(16),
-        color: Colors.teal,
+        color: Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Center the content
           children: [
             TextField(
               controller: email,
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Enter email',
                 hintStyle: TextStyle(color: Colors.white), // Hint text color
                 border: OutlineInputBorder(
+
                   borderRadius: BorderRadius.circular(50.0),
+                    borderSide: const BorderSide(color: Colors.white)
                   // Rounded corners
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(19.0),
+                  borderSide: BorderSide(color: Colors.teal), // Border color when enabled
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -82,12 +89,18 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 20),
             TextField(
               controller: password,
+              style: TextStyle(color: Colors.white),
               obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Enter password',
                 hintStyle: TextStyle(color: Colors.white), // Hint text color
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50.0), // Rounded corners
+                  borderRadius: BorderRadius.circular(50.0),
+                  borderSide: BorderSide(color: Colors.white)// Rounded corners
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(19.0),
+                  borderSide: BorderSide(color: Colors.teal), // Border color when enabled
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),

@@ -24,7 +24,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Homepage"),
+        title: const Text("Welcome Back!"),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,
@@ -63,15 +64,16 @@ class _HomePageState extends State<HomePage> {
   Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
    if(userData["email"] != getCurrentUser()){
      return UserTile(
-       text: userData["email"],
+       text: userData["username"],
        onTap: () {
          Navigator.push(
            context,
            MaterialPageRoute(
              builder: (context) =>
                  ChatPage(
-                     receiverEmail: userData["email"],
+                   receiverEmail: userData["email"],
                    receiverID: userData["uid"],
+                   username: userData["username"],
                  ),
            ),
          );
