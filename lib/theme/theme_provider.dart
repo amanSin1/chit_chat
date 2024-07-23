@@ -1,6 +1,9 @@
-import 'package:demu_chat/dark_mode.dart';
-import 'package:demu_chat/light_mode.dart';
+import 'package:demu_chat/theme/dark_mode.dart';
+import 'package:demu_chat/theme/light_mode.dart';
 import 'package:flutter/material.dart';
+
+import 'dark_mode.dart';
+import 'light_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData _themeData = lightMode;

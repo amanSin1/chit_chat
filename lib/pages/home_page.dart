@@ -1,9 +1,9 @@
-import 'package:demu_chat/my_drawer.dart';
+import 'package:demu_chat/models/my_drawer.dart';
 import 'package:demu_chat/services/chat/chat_services.dart';
-import 'package:demu_chat/user_tile.dart';
+import 'package:demu_chat/models/user_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'chat_page.dart';
+import '../services/chat/chat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

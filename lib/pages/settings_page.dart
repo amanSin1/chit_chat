@@ -1,4 +1,4 @@
-import 'package:demu_chat/theme_provider.dart';
+import 'package:demu_chat/theme/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

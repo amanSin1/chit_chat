@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:demu_chat/theme_provider.dart';
-import 'package:demu_chat/wrapper.dart';
+import 'package:demu_chat/theme/theme_provider.dart';
+import 'package:demu_chat/pages/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';

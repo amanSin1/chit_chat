@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:demu_chat/chat_bubble.dart';
+import 'package:demu_chat/services/chat/chat_bubble.dart';
 import 'package:demu_chat/services/chat/chat_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
