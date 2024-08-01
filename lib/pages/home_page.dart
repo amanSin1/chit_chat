@@ -29,7 +29,6 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.grey,
         elevation: 0,
-
       ),
       drawer: const MyDrawer(),
       body: _buildUserList(),
@@ -52,8 +51,11 @@ class _HomePageState extends State<HomePage> {
           return const Center(child: Text("No users found"));
         }
 
+        final currentUserUID = getCurrentUser()!.uid;
+
         return ListView(
           children: snapshot.data!
+              .where((userData) => userData["uid"] != currentUserUID) // Filter out the current user
               .map<Widget>((userData) => _buildUserListItem(userData, context))
               .toList(),
         );
@@ -62,25 +64,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
-   if(userData["email"] != getCurrentUser()){
-     return UserTile(
-       text: userData["username"],
-       onTap: () {
-         Navigator.push(
-           context,
-           MaterialPageRoute(
-             builder: (context) =>
-                 ChatPage(
-                   receiverEmail: userData["email"],
-                   receiverID: userData["uid"],
-                   username: userData["username"],
-                 ),
-           ),
-         );
-       },
-     );
-   }else{
-     return Container();
-   }
+    return UserTile(
+      text: userData["username"],
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(
+              receiverEmail: userData["email"],
+              receiverID: userData["uid"],
+              username: userData["username"],
+            ),
+          ),
+        );
+      },
+    );
   }
 }
